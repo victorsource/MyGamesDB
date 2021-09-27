@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('../partials/head'); %>
+  </head>
+
+  <body>
+    <%- include('../partials/navbar'); %>
+    <div class="section">
+      <div class="columns">
+        <!-- Side menu -->
+        <div class="column is-one-fifth"><%- include('../partials/admin_side'); %></div>
+        <!-- Content -->
+        <div class="column">
+          <h1 class="title is-3 box"><%= title_page %></h1>
+          <!-- Form -->
+          <%- include('../partials/forms/game_form'); %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

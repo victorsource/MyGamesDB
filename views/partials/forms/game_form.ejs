@@ -1,0 +1,132 @@
+<% if (messages.form_error) { %>
+<div class="notification is-danger">
+  <button class="delete"></button>
+  <%= messages.form_error %>
+</div>
+<% } %>
+<form action="<%= action %>" method="POST">
+  <div class="columns">
+    <div class="column is-4">
+      <label class="label"><%= text.forms.cover %></label>
+      <figure class="image">
+        <img class="form-cover" src="../../images/placeholder.png" />
+      </figure>
+      <div class="field pt-3">
+        <div class="control">
+          <input class="input cover-url" type="text" name="coverUrl" placeholder="url" />
+        </div>
+      </div>
+      <label class="label mt-2"><%= text.table.launch_date %></label>
+      <div class="columns">
+        <div class="field column is-4 pr-1">
+          <label class="label"><%= text.table.japan %>:</label><input class="input" type="date" name="dateJP" />
+        </div>
+        <div class="field column is-4 pl-1 pr-1">
+          <label class="label"><%= text.table.europe %>:</label><input class="input" type="date" name="dateEU" />
+        </div>
+        <div class="field column is-4 pl-1">
+          <label class="label"><%= text.table.america %>:</label><input class="input" type="date" name="dateNA" />
+        </div>
+      </div>
+      <div class="field">
+        <div class="columns is-vcentered">
+          <div class="column is-2">
+            <label class="label"><%= text.admin.franchises %>: </label>
+          </div>
+          <div class="column">
+            <div class="select franchise">
+              <select name="franchise">
+                <option value="-1">----</option>
+                  <% data.franchises.forEach( (item, i) => { %>
+                <option value="<%= item.id %>">
+                  <%= item.name %>
+                </option>
+              <% }) %>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <label class="label"><%= text.forms.name %></label>
+        <div class="control">
+          <input class="input" type="text" name="name" required />
+        </div>
+      </div>
+      <div class="field">
+        <label class="label"><%= text.forms.alt_name %></label>
+        <div class="control">
+          <input class="input" type="text" name="altNames" />
+        </div>
+      </div>
+      <div class="field">
+        <label class="label"><%= text.forms.description %></label>
+        <div class="control">
+          <textarea class="textarea" placeholder="" name="description"></textarea>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label"><%= text.forms.comments %></label>
+        <div class="control">
+          <textarea class="textarea" placeholder="" name="comments"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns is-multiline">
+    <div class="field column is-full">
+      <label class="label"><%= text.admin.platforms %></label>
+      <div class="columns is-multiline is-gapless">
+        <% data.platforms.forEach( (item, i) => { %>
+        <div class="control column is-2">
+          <label class="checkbox">
+            <input type="checkbox" name="platforms" value="<%= item.id %>" />
+            <%= item.name %>
+          </label>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+
+    <div class="field column is-full">
+      <label class="label"><%= text.admin.developers %></label>
+      <div class="columns is-multiline is-gapless">
+        <% data.developers.forEach( (item, i) => { %>
+        <div class="control column is-2">
+          <label class="checkbox">
+            <input type="checkbox" name="developers" value="<%= item.id %>" />
+            <%= item.name %>
+          </label>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+
+    <div class="field column is-full">
+      <label class="label"><%= text.admin.genres %></label>
+      <div class="columns is-multiline is-gapless">
+        <% data.genres.forEach( (item, i) => { %>
+        <div class="control column is-2">
+          <label class="checkbox">
+            <input type="checkbox" name="genres" value="<%= item.id %>" />
+            <%= item.name %>
+          </label>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+
+  </div>
+  <div class="columns">
+    <div class="column field is-grouped">
+      <div class="control">
+        <input class="input is-link button" type="submit" value="<%= text.forms.buttons.new %>" />
+      </div>
+      <div class="control">
+        <input class="input is-light button" type="reset" value="<%= text.forms.buttons.reset %>" />
+      </div>
+    </div>
+  </div>
+</form>

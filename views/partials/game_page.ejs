@@ -1,0 +1,80 @@
+<div class="columns">
+  <div class="column">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-title game-title">
+          <h1 class="title is-1"><%= game.name %></h1>
+          <h2 class="subtitle"><%= game.altNames %></h2>
+        </div>
+      </div>
+      <div class="card-content">
+        <% if (game.description) { %>
+          <h2 class="subtitle"><%= text.forms.description %></h2>
+          <p class="content">
+            <%= game.description %>
+          </p>
+        <% } %>
+        <% if (game.comments) { %>
+          <h2 class="subtitle"><%= text.forms.comments %></h2>
+          <p class="content">
+            <%= game.comments %>
+          </p>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <div class="column is-3">
+    <div class="card">
+      <div class="card-image pt-4">
+        <figure class="image">
+          <img class="image form-cover" src="data:image/jpg;base64,<%= game.image %>" alt="Cover" onerror="this.src='/images/placeholder.png'"/>
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="content">
+          <ul>
+            <li><%= text.forms.name + ': ' + game.name %></li>
+            <li><%= text.forms.alt_name + ': ' + game.altNames %></li>
+            <li><%= text.table.launch_date %>:
+              <ul>
+                <% if (game.eurDate) { %>
+                  <li><%= text.table.europe + ': ' + game.eurDate %></li>
+                <% } %>
+                <% if (game.naDate) { %>
+                  <li><%= text.table.america + ': ' + game.naDate %></li>
+                <% } %>
+                <% if (game.jpDate) { %>
+                  <li><%= text.table.japan + ': ' + game.jpDate %></li>
+                <% } %>
+              </ul>
+            </li>
+            <% if (game.Franchise) { %>
+              <li><%= text.admin.franchises + ': ' + game.Franchise.name %></li>
+            <% } %>
+            <li><%= text.table.platform %>: 
+              <ul>
+                <% game.Platforms.forEach( pt => { %>
+                  <li><%= pt.name %></li>
+                <% }); %>
+              </ul>
+            </li>
+            <li><%= text.table.genre %>: 
+              <ul>
+                <% game.Genres.forEach( gr => { %>
+                  <li><%= gr.name %></li>
+                <% }); %>
+              </ul>
+            </li>
+            <li><%= text.table.developer %>: 
+              <ul>
+                <% game.Developers.forEach( dv => { %>
+                  <li><%= dv.name %></li>
+                <% }); %>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

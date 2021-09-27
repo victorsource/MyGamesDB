@@ -1,0 +1,40 @@
+<aside class="menu">
+  <p class="menu-label"><%= text.admin.general %></p>
+  <ul class="menu-list">
+    <li><a href="/admin"><%= text.admin.index %></a></li>    
+  </ul>
+  <p class="menu-label"><%= text.admin.admin %></p>
+  <ul class="menu-list">
+    <li>
+      <a><%= text.admin.games %></a>
+      <ul>
+        <li><a href="/admin/games/add"><%= text.admin.add_game %></a></li>
+        <li><a href="/admin/games"><%= text.admin.edit_game %></a></li>
+      </ul>
+    </li>
+    <li>
+      <a><%= text.admin.platforms %></a>
+      <ul>
+        <li><a href="/admin/platforms"><%= text.admin.add_edit_platform %></a></li>
+      </ul>
+    </li>
+    <li>
+      <a><%= text.admin.genres %></a>
+      <ul>
+        <li><a href="/admin/genres"><%= text.admin.add_edit_genre %></a></li>
+      </ul>
+    </li>
+    <li>
+      <a><%= text.admin.developers %></a>
+      <ul>
+        <li><a href="/admin/devs"><%= text.admin.add_edit_developer %></a></li>
+      </ul>
+    </li>
+    <li>
+      <a><%= text.admin.franchises %></a>
+      <ul>
+        <li><a href="/admin/franchise"><%= text.admin.add_edit_franchise %></a></li>
+      </ul>
+    </li>
+  </ul>
+</aside>

@@ -1,0 +1,47 @@
+<table class="index_table table is-striped is-fullwidth is-bordered">
+  <thead>
+    <tr>
+      <th colspan="2"><%= text.table.title %></th>
+      <th><%= text.table.platform %></th>
+      <th><%= text.table.genre %></th>
+      <th><%= text.table.launch_date %></th>
+      <th><%= text.table.developer %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% games.forEach( (game, i) => { %>
+    <tr>
+      <td style="width: 57px">
+      <img class="image is-32x32" src="data:image/jpg;base64,<%= game.image %>" alt="Cover" onerror="this.src='/images/placeholder.png'"/>
+      </td>
+      <td><a href="/game/<%= game.id %>"><%= game.name %></a></td>
+      <td>                  
+        <% game.Platforms.forEach ( platform => { %>
+          <%= platform.name %>,
+        <% }); %>
+      </td>
+      <td>
+        <% game.Genres.forEach ( genre => { %>
+          <%= genre.name %>,
+        <% }); %>
+      </td>
+      <td>
+        <% if (game.eurDate) { %>
+          Europa: <%= game.eurDate %>,
+        <% } %>
+        <% if (game.naDate) { %>
+          America: <%= game.naDate %>,
+        <% } %>
+        <% if (game.jpDate) { %>
+          Japon: <%= game.jpDate %>
+        <% } %>
+      </td>
+      <td>
+        <% game.Developers.forEach ( developer => { %>
+          <%= developer.name %>,
+        <% }); %>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>

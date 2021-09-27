@@ -1,0 +1,30 @@
+@charset "utf-8";
+@import '../node_modules/bulmaswatch/darkly/_variables.scss';
+@import '../node_modules/bulma/bulma.sass';
+@import '../node_modules/bulmaswatch/darkly/_overrides.scss';
+
+.image .form-cover {
+  height: 210px;
+  object-fit: contain;
+}
+.index_table tr td:first-child {
+  border-right: none;
+  padding-right: 0px;
+}
+.index_table tr td:nth-child(2) {
+  border-left: none;
+  padding-left: 0px;
+  min-width: 25%;
+}
+.franchise, .franchise select {
+  width: 100%;
+}
+.table-id {
+  width: 0;
+}
+.table-actions {
+  width: 180px;
+}
+.game-title {
+  display: block;
+}

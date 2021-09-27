@@ -1,0 +1,35 @@
+<table class="table is-striped is-fullwidth is-bordered">
+  <thead>
+    <tr>
+      <th><%= text.table.id %></th>
+      <th><%= text.table.title %></th>
+      <th><%= text.table.platform %></th>
+      <th><%= text.table.actions %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% games.forEach( (game, i)  => { %>
+    <tr>
+      <td class="table-id"><%= game.id %></td>
+      <td><%= game.name %></td>
+      <td>                  
+        <% game.Platforms.forEach ( platform => { %>
+          <%= platform.name %>,
+        <% }); %>
+      </td>
+      <td class="table-actions">
+        <a class="button is-primary is-small" name="<%= game.id %>" href="/admin/games/<%= game.id %>/edit">Editar</a>
+        <button
+          class="delete-confirm button is-danger is-small"
+          name="<%= game.id %>"
+          data-action="/admin/games/<%= game.id %>?_method=DELETE"
+          data-text="Borrar: <%= game.name %>"
+        >
+            <%= text.forms.buttons.delete %>
+        </button>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
+<%- include('../modals/confirm_modal'); %>

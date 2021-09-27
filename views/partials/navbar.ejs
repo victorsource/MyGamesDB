@@ -1,0 +1,29 @@
+<nav class="navbar is-radiusless">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/"><%= text.title %></a>
+    <a class="navbar-burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <div class="navbar-item">
+        <form method="GET" action="/games/search">
+          <div class="field has-addons">
+            <div class="control">
+              <input class="input is-small" type="text" name="title" />
+            </div>
+            <div class="control">
+              <input type="submit" class="button is-small" value="<%= text.forms.buttons.search %>"></input>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="navbar-end">
+      <a class="navbar-item" href="/admin"><%= text.admin.admin %></a>
+    </div>
+  </div>
+</nav>

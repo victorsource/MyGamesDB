@@ -1,0 +1,28 @@
+<div class="columns is-multiline box is-marginless">
+  <% data.forEach( (item, i) => { %>
+  <div class="column is-4">
+    <div class="columns">
+      <div class="column is-1"><%= i+1 %>.</div>
+      <div class="column">
+        <div class="columns">
+          <div class="column"><%= item.name %></div>
+          <div class="column is-6">
+            <a class="button is-primary is-small" name="<%= item.id %>" href="/admin/<%= page %>/<%= item.id %>/edit">
+              <%= text.forms.buttons.edit %>
+            </a>
+            <button
+              class="delete-confirm button is-danger is-small"
+              name="<%= item.id %>"
+              data-action="/admin/<%= page %>/<%= item.id %>?_method=DELETE"
+              data-text="Borrar: <%= item.name %>"
+            >
+            <%= text.forms.buttons.delete %>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% }); %>
+</div>
+<%- include('../modals/confirm_modal'); %>
